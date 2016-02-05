@@ -15,7 +15,7 @@ def run_command(command):
 
 def usage():
     if len(sys.argv) < 2:
-        exit_msg = "Usage:" + str(sys.argv[0]) + "<ip address of one Iscsi target>:<port> \nexample: iscsi_discover_login.py 192.168.10.17:3260"
+        exit_msg = "Usage:" + str(sys.argv[0]) + "<ip address of one Iscsi target>:<port> \nexample: "  + str(sys.argv[0]) + " 192.168.10.17:3260"
         sys.exit(exit_msg)
 
 usage()
