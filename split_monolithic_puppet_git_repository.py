@@ -1,4 +1,3 @@
-
 #!/bin/python
 
 """
@@ -45,10 +44,12 @@ if not os.path.exists(target_directory):
 modules_list = [ module_name for module_name in os.listdir(puppet_module_path) if os.path.isdir(os.path.join(puppet_module_path, module_name)) ]
 cmd_remove_git_origin = "git remote remove origin"
 for module in modules_list:
+    print "### Start Split for", module
     os.chdir(target_directory)
     git_clone_cmd = "git clone " + puppet_environment_directory + " " + str(module)
     print "running", git_clone_cmd, "...\n", "".join([str(x) for x in list(run_command(git_clone_cmd))])
     os.chdir(module)
     print "running", cmd_remove_git_origin, "...\n", "".join([str(x) for x in list(run_command(cmd_remove_git_origin))])
     cmd_filter_git = "git filter-branch --subdirectory-filter modules/" + module
-    print "running", cmd_filter_git, "...\n", "".join([str(x) for x in list(run_command(cmd_filter_git))])
+    print "running", cmd_filter_git, "...\n", "".join([str(x) for x in list(run_command(cmd_filter_git))]) 
+    print "### End Split for", module ,"\n\n"
