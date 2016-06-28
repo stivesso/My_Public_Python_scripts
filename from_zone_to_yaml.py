@@ -30,9 +30,9 @@ def check_A_records(zonefile_list):
     Return YAML for A Entry, taking as Input a list with only A records
     """
     for line in zonefile_list:
-        print (SPACE_CHAR * 4) + "'" + line[1].split()[0] + "'"
-        print (SPACE_CHAR * 6) + "owner"
-        print (SPACE_CHAR * 8) + "'" + line[1].split()[-1] + "'"
+        print (SPACE_CHAR * 6) + "'" + line[1].split()[0] + "'      :"
+        print (SPACE_CHAR * 8) + "owner        :"
+        print (SPACE_CHAR * 10) + "'" + line[1].split()[-1] + "'"
 
 def check_MX_records(zonefile_list,zonename):
     """
@@ -56,6 +56,7 @@ def check_OTHERS_records(zonefile_list,zonename):
     for other_type in others_type_list:
         print (SPACE_CHAR * 2) + "-"
         print (SPACE_CHAR * 4) + "namevar                  : '" + str(other_type) + " for " + zonename + "'"
+        print (SPACE_CHAR * 4) + "zone                     : '" + zonename + "'"
         print (SPACE_CHAR * 4) + "record_type              : '" + str(other_type) + "'"
         print (SPACE_CHAR * 4) + "hash_data                :"
         for line in zonefile_list:
