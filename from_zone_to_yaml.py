@@ -1,5 +1,12 @@
 #!/usr/bin/python
+"""
+The aim of this script is to be able to generate a YAML output ready to use for Hiera Configuration
+It has been used to generate correct syntax for Hiera Configuration related to camptocamp/bind Forge Module
+The script needs two arguments, the first one being the full path to the zone file and the second the zone name
+Example: ./from_zone_to_yaml.py /home/stivesso/example.com_zonefile example.com
+"""
 
+# Import Modules
 import os
 import sys
 
@@ -19,12 +26,18 @@ def check_args(lst):
         sys.exit("Insufficient Number of Arguments")
 
 def check_A_records(zonefile_list):
+    """
+    Return YAML for A Entry, taking as Input a list with only A records
+    """
     for line in zonefile_list:
         print (SPACE_CHAR * 4) + "'" + line[1].split()[0] + "'"
         print (SPACE_CHAR * 6) + "owner"
         print (SPACE_CHAR * 8) + "'" + line[1].split()[-1] + "'"
 
 def check_MX_records(zonefile_list,zonename):
+    """
+    Return YAML for MX Entry, taking as Input a list with only MX records
+    """
     index = 1
     for line in zonefile_list:
         print (SPACE_CHAR * 2) + "-"
@@ -36,6 +49,9 @@ def check_MX_records(zonefile_list,zonename):
         index += 1
 
 def check_OTHERS_records(zonefile_list,zonename):
+    """
+    Return YAML for Any others Type of Records, taking as Input List with only any records type and the zonename
+    """
     others_type_list = set([record for line in zonefile_list for record in DNS_RECORD_TYPE if record in line[1]])
     for other_type in others_type_list:
         print (SPACE_CHAR * 2) + "-"
