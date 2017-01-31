@@ -2,10 +2,10 @@
 #!/usr/bin/python
 """
 The aim of this script is to send a certain number of icmp packets 
-using ping commands with a defined size and return the percentage of packet loss
+using ping commands with a packet defined size and return the percentage of packet loss
 The Script is taking three arguments, first one being the target hostname/ip
 The Second one (optional) is the number of packets to send, default to 10
-The Third one (optional) is the size of the Packages
+The Third one (optional) is the size of the Packages, default to 3000
 """
 import platform, sys, subprocess
 
