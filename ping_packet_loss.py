@@ -5,6 +5,7 @@ using ping commands with a packet defined size and return the percentage of pack
 The Script is taking three arguments, first one being the target hostname/ip
 The Second one (optional) is the number of packets to send, default to 10
 The Third one (optional) is the size of the Packages, default to 3000
+Written and maintained by Steve ESSO (https://github.com/stivesso)
 """
 import platform, sys, subprocess
 
