@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 """
 The aim of this script is to send a certain number of icmp packets 
